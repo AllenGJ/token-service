@@ -7,9 +7,8 @@ Tested on node.js v16.17.1 and npm 8.19.2
 Before running, tweak the various configuration options present in the '.env' file as per your preference.
 
 To run the service, run ```npm start``` from within the project directory.
-To run the tests, run ```npm test```.
 
-Tests are written for all the endpoints present.
+To run the tests, run ```npm test```. Tests are written for all the endpoints present.
 
 ### Using Docker
 #### Starting the service
