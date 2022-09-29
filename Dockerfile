@@ -18,4 +18,4 @@ FROM base as production
 ENV NODE_ENV=production
 RUN ["npm", "ci", "--production"]
 COPY . .
-CMD service redis-server start && node app.js
+CMD service redis-server start && npm start
