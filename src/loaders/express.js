@@ -19,7 +19,7 @@ export  function expressLoader(app) {
         })
     });
 
-    // Error handler
+    // Error handler called when next() is called with any value
     app.use((err, req, res, next) => {
         // console.error(err);
         res.status(err.status || 500).json({

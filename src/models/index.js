@@ -2,6 +2,8 @@ import client from "../loaders/redis.js";
 import { customAlphabet } from "nanoid";
 const nanoid = customAlphabet("1234567890abcdef", 10);
 
+// The  data layer models accept operations from the service layer and translates them to redis operations.
+
 /**
  * Generic model that abstracts redis specifics
  */
@@ -10,7 +12,7 @@ class Model {
         this.id = id ?? Model.generateId();
     }
     /**
-     * Generates a non-sequential string
+     * Generates a random string
      * @returns {string} Alphanumeric string
      */
     static generateId () {
@@ -26,10 +28,6 @@ class Model {
         const entityType = this.name;
         await client.hSet(`${entityType}:${id}`, object);
         return {id, ...object};
-    }
-
-    toObject() {
-        return {...this};
     }
 }
 

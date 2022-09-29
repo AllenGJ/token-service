@@ -1,6 +1,8 @@
 import client from "../loaders/redis.js"; 
 import Model from "./index.js";
 const tokenTtl = process.env.TOKEN_TTL;
+
+// The data layer models accept operations from the service layer and translates them to redis operations.
 /**
  * Token class
  */
@@ -9,10 +11,6 @@ class Token extends Model {
         super(id);
         this.created = created ?? Date.now();
         this.status = status ?? "available";
-    }
-
-    static instantiate(object) {
-        return Object.assign(Object.create(this.prototype), object);
     }
 
     /**

@@ -5,6 +5,7 @@ import tokenController from "../controllers/token.controller.js";
 
 const tokenRouter = Router();
 
+// The router defines middleware and route handlers for each route.
 tokenRouter.post(
     "/generate",
     tokenCountValidator,

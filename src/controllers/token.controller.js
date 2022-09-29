@@ -1,5 +1,6 @@
 import * as tokenService from "../services/token.service.js";
 
+// The controllers handle extracting infromation from the requests and emitting responses.
 const tokenController = {
     async generateTokens(req, res, next) {
         try {
