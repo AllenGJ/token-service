@@ -12,7 +12,7 @@ COPY ["package.json", "package-lock.json", "./"]
 FROM base as test
 RUN ["npm", "ci"]
 COPY . .
-RUN ["npm", "test"]
+CMD service redis-server start && npm test
 
 FROM base as production
 ENV NODE_ENV=production
