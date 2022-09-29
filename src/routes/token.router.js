@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { tokenCountValidator } from "../validators/token.validator.js";
+import { tokenCountValidator, tokenCheckValidator, tokenRedeemValidator } from "../validators/token.validator.js";
 import processValidation from "../utils/validation.util.js";
 import tokenController from "../controllers/token.controller.js";
 
@@ -15,12 +15,14 @@ tokenRouter.post(
 
 tokenRouter.get(
     "/check/:token",
+    tokenCheckValidator,
     processValidation,
     tokenController.checkToken
 );
 
 tokenRouter.put(
     "/redeem/:token",
+    tokenRedeemValidator,
     processValidation,
     tokenController.redeemToken
 );
