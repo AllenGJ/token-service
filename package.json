@@ -5,8 +5,9 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "mocha -r dotenv/config",
-    "start": "node -r dotenv/config app.js"
+    "test": "mocha -r dotenv/config --exit",
+    "start": "node -r dotenv/config app.js",
+    "debug": "node --inspect -r dotenv/config app.js "
   },
   "author": "Allen GJ",
   "license": "ISC",
