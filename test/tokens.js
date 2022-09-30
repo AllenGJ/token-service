@@ -2,18 +2,12 @@ import chai from "chai";
 import chaiHttp from "chai-http";
 import server from "../app.js";
 import fakeTimers from "@sinonjs/fake-timers";
-import { sleep } from "../src/utils/index.js";
 
 const tokenTimeout = parseInt(process.env.TOKEN_TTL);
 
 chai.should();
 chai.use(chaiHttp);
 const clock = fakeTimers.install({shouldAdvanceTime: true});
-
-before( async() => {
-    // Wait for one second for setup
-    await sleep(1000);
-})
 
 after( async () => {
     await server.close();
